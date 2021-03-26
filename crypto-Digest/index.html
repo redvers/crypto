@@ -34,7 +34,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../assets/images/logo.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-ponylang-0.2.7">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-ponylang-0.2.8">
     
     
       
@@ -724,14 +724,14 @@
                 
                 
                 <h1 id="digest">Digest<a class="headerlink" href="#digest" title="Permanent link">&para;</a></h1>
-<p><span class="source-link"><a href="../src/crypto/digest/#L7">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/crypto/digest/#L26">[Source]</a></span></p>
 <p>Produces a hash from the chunks of input. Feed the input with append() and
 produce a final hash from the concatenation of the input with final().</p>
 <pre><code class="language-pony">class ref Digest
 </code></pre>
 <h2 id="constructors">Constructors<a class="headerlink" href="#constructors" title="Permanent link">&para;</a></h2>
 <h3 id="md4">md4<a class="headerlink" href="#md4" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/crypto/digest/#L16">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/crypto/digest/#L35">[Source]</a></span></p>
 <p>Use the MD4 algorithm to calculate the hash.</p>
 <pre><code class="language-pony">new ref md4()
 : Digest ref^
@@ -742,7 +742,7 @@ produce a final hash from the concatenation of the input with final().</p>
 </ul>
 <hr />
 <h3 id="md5">md5<a class="headerlink" href="#md5" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/crypto/digest/#L28">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/crypto/digest/#L47">[Source]</a></span></p>
 <p>Use the MD5 algorithm to calculate the hash.</p>
 <pre><code class="language-pony">new ref md5()
 : Digest ref^
@@ -753,7 +753,7 @@ produce a final hash from the concatenation of the input with final().</p>
 </ul>
 <hr />
 <h3 id="ripemd160">ripemd160<a class="headerlink" href="#ripemd160" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/crypto/digest/#L40">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/crypto/digest/#L59">[Source]</a></span></p>
 <p>Use the RIPEMD160 algorithm to calculate the hash.</p>
 <pre><code class="language-pony">new ref ripemd160()
 : Digest ref^
@@ -764,7 +764,7 @@ produce a final hash from the concatenation of the input with final().</p>
 </ul>
 <hr />
 <h3 id="sha1">sha1<a class="headerlink" href="#sha1" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/crypto/digest/#L52">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/crypto/digest/#L71">[Source]</a></span></p>
 <p>Use the SHA1 algorithm to calculate the hash.</p>
 <pre><code class="language-pony">new ref sha1()
 : Digest ref^
@@ -775,7 +775,7 @@ produce a final hash from the concatenation of the input with final().</p>
 </ul>
 <hr />
 <h3 id="sha224">sha224<a class="headerlink" href="#sha224" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/crypto/digest/#L64">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/crypto/digest/#L83">[Source]</a></span></p>
 <p>Use the SHA256 algorithm to calculate the hash.</p>
 <pre><code class="language-pony">new ref sha224()
 : Digest ref^
@@ -786,7 +786,7 @@ produce a final hash from the concatenation of the input with final().</p>
 </ul>
 <hr />
 <h3 id="sha256">sha256<a class="headerlink" href="#sha256" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/crypto/digest/#L76">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/crypto/digest/#L95">[Source]</a></span></p>
 <p>Use the SHA256 algorithm to calculate the hash.</p>
 <pre><code class="language-pony">new ref sha256()
 : Digest ref^
@@ -797,7 +797,7 @@ produce a final hash from the concatenation of the input with final().</p>
 </ul>
 <hr />
 <h3 id="sha384">sha384<a class="headerlink" href="#sha384" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/crypto/digest/#L88">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/crypto/digest/#L107">[Source]</a></span></p>
 <p>Use the SHA384 algorithm to calculate the hash.</p>
 <pre><code class="language-pony">new ref sha384()
 : Digest ref^
@@ -808,7 +808,7 @@ produce a final hash from the concatenation of the input with final().</p>
 </ul>
 <hr />
 <h3 id="sha512">sha512<a class="headerlink" href="#sha512" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/crypto/digest/#L100">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/crypto/digest/#L119">[Source]</a></span></p>
 <p>Use the SHA512 algorithm to calculate the hash.</p>
 <pre><code class="language-pony">new ref sha512()
 : Digest ref^
@@ -819,7 +819,7 @@ produce a final hash from the concatenation of the input with final().</p>
 </ul>
 <hr />
 <h3 id="shake128">shake128<a class="headerlink" href="#shake128" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/crypto/digest/#L112">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/crypto/digest/#L131">[Source]</a></span></p>
 <p>Use the Shake128 algorithm to calculate the hash.</p>
 <pre><code class="language-pony">new ref shake128()
 : Digest ref^
@@ -830,7 +830,7 @@ produce a final hash from the concatenation of the input with final().</p>
 </ul>
 <hr />
 <h3 id="shake256">shake256<a class="headerlink" href="#shake256" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/crypto/digest/#L124">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/crypto/digest/#L143">[Source]</a></span></p>
 <p>Use the Shake256 algorithm to calculate the hash.</p>
 <pre><code class="language-pony">new ref shake256()
 : Digest ref^
@@ -842,7 +842,7 @@ produce a final hash from the concatenation of the input with final().</p>
 <hr />
 <h2 id="public-functions">Public Functions<a class="headerlink" href="#public-functions" title="Permanent link">&para;</a></h2>
 <h3 id="append">append<a class="headerlink" href="#append" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/crypto/digest/#L136">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/crypto/digest/#L155">[Source]</a></span></p>
 <p>Update the Digest object with input. Throw an error if final() has been
 called.</p>
 <pre><code class="language-pony">fun ref append(
@@ -859,7 +859,7 @@ called.</p>
 </ul>
 <hr />
 <h3 id="final">final<a class="headerlink" href="#final" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/crypto/digest/#L144">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/crypto/digest/#L163">[Source]</a></span></p>
 <p>Return the digest of the strings passed to the append() method.</p>
 <pre><code class="language-pony">fun ref final()
 : Array[U8 val] val
@@ -870,7 +870,7 @@ called.</p>
 </ul>
 <hr />
 <h3 id="digest_size">digest_size<a class="headerlink" href="#digest_size" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/crypto/digest/#L167">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/crypto/digest/#L186">[Source]</a></span></p>
 <p>Return the size of the message digest in bytes.</p>
 <pre><code class="language-pony">fun box digest_size()
 : USize val

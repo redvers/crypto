@@ -34,7 +34,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../assets/images/logo.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-ponylang-0.2.7">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-ponylang-0.2.8">
     
     
       
@@ -478,13 +478,13 @@
                 
                 
                 <h1 id="hashfn">HashFn<a class="headerlink" href="#hashfn" title="Permanent link">&para;</a></h1>
-<p><span class="source-link"><a href="../src/crypto/hash_fn/#L6">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/crypto/hash_fn/#L15">[Source]</a></span></p>
 <p>Produces a fixed-length byte array based on the input sequence.</p>
 <pre><code class="language-pony">interface ref HashFn
 </code></pre>
 <h2 id="public-functions">Public Functions<a class="headerlink" href="#public-functions" title="Permanent link">&para;</a></h2>
 <h3 id="apply">apply<a class="headerlink" href="#apply" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/crypto/hash_fn/#L10">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/crypto/hash_fn/#L19">[Source]</a></span></p>
 <pre><code class="language-pony">fun tag apply(
   input: (String val | Array[U8 val] val))
 : Array[U8 val] val

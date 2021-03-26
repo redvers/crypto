@@ -34,7 +34,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../assets/images/logo.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-ponylang-0.2.7">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-ponylang-0.2.8">
     
     
       
@@ -580,7 +580,7 @@
                 
                 
                 <h1 id="ripemd160">RIPEMD160<a class="headerlink" href="#ripemd160" title="Permanent link">&para;</a></h1>
-<p><span class="source-link"><a href="../src/crypto/hash_fn/#L38">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/crypto/hash_fn/#L45">[Source]</a></span></p>
 <pre><code class="language-pony">primitive val RIPEMD160 is
   HashFn ref
 </code></pre>
@@ -591,7 +591,7 @@
 <hr />
 <h2 id="constructors">Constructors<a class="headerlink" href="#constructors" title="Permanent link">&para;</a></h2>
 <h3 id="create">create<a class="headerlink" href="#create" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/crypto/hash_fn/#L38">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/crypto/hash_fn/#L45">[Source]</a></span></p>
 <pre><code class="language-pony">new val create()
 : RIPEMD160 val^
 </code></pre>
@@ -602,7 +602,7 @@
 <hr />
 <h2 id="public-functions">Public Functions<a class="headerlink" href="#public-functions" title="Permanent link">&para;</a></h2>
 <h3 id="apply">apply<a class="headerlink" href="#apply" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/crypto/hash_fn/#L39">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/crypto/hash_fn/#L46">[Source]</a></span></p>
 <p>Compute the RIPEMD160 message digest conforming to ISO/IEC 10118-3</p>
 <pre><code class="language-pony">fun tag apply(
   input: (String val | Array[U8 val] val))
@@ -618,7 +618,7 @@
 </ul>
 <hr />
 <h3 id="eq">eq<a class="headerlink" href="#eq" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/crypto/hash_fn/#L39">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/crypto/hash_fn/#L46">[Source]</a></span></p>
 <pre><code class="language-pony">fun box eq(
   that: RIPEMD160 val)
 : Bool val
@@ -633,7 +633,7 @@
 </ul>
 <hr />
 <h3 id="ne">ne<a class="headerlink" href="#ne" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/crypto/hash_fn/#L39">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/crypto/hash_fn/#L46">[Source]</a></span></p>
 <pre><code class="language-pony">fun box ne(
   that: RIPEMD160 val)
 : Bool val

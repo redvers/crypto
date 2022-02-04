@@ -1,4 +1,5 @@
 use "format"
+use "stack_x509_extension"
 //use @X509_check_ca[I32](x: X509 tag)
 //use @X509_check_email[I32](x: X509 tag, chk: Pointer[U8] tag, chklen: U64, flags: U32)
 //use @X509_check_host[I32](x: X509 tag, chk: Pointer[U8] tag, chklen: U64, flags: U32, peername: Pointer[Pointer[U8]] tag)
@@ -44,7 +45,8 @@ class X509
 		let notb4: Pointer[ASN1String] tag = @X509_get0_notAfter(_cert)
 		ASN1String.time_to_posix(notb4)
 
-
+  fun get_extensions(): StackX509Extension =>
+    StackX509Extension.create_from_x509(_cert)
 
 
 

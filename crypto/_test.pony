@@ -15,6 +15,7 @@ actor Main is TestList
     test(_TestSHA384)
     test(_TestSHA512)
     test(_TestDigest)
+    test(_TestX509)
 
 class iso _TestConstantTimeCompare is UnitTest
   fun name(): String => "crypto/ConstantTimeCompare"
@@ -148,7 +149,7 @@ class iso _TestDigest is UnitTest
       "7736dd67494a7072bf255852bd327406b398cb0b16cb400fcd3fcfb6827d74ab"+
       "9b14673d50515b6273ef15543325f8d3",
       ToHexString(sha384.final()))
-      
+
     let sha512 = Digest.sha512()
     sha512.append("message1")?
     sha512.append("message2")?
@@ -172,3 +173,53 @@ class iso _TestDigest is UnitTest
       "80e2bbb14639e3b1fc1df80b47b67fb518b0ed26a1caddfa10d68f7992c33820",
       ToHexString(shake256.final()))
     end
+class iso _TestX509 is UnitTest
+  fun name(): String => "crypto/X509"
+
+  fun apply(h: TestHelper) ? =>
+    let ponycert: String val =
+    """
+    -----BEGIN CERTIFICATE-----
+    MIIEgjCCA2qgAwIBAgISAz1y8xy4EUQVL9Ul0rj4fubmMA0GCSqGSIb3DQEBCwUA
+    MDIxCzAJBgNVBAYTAlVTMRYwFAYDVQQKEw1MZXQncyBFbmNyeXB0MQswCQYDVQQD
+    EwJSMzAeFw0yMTEyMDcwMDAwMzBaFw0yMjAzMDcwMDAwMjlaMBYxFDASBgNVBAMT
+    C3BvbnlsYW5nLmlvMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEth2q/cuskagD
+    jBICLrLS4RybSsIVImNM1U6z+RVo+yTeJloF039qOjKtOoF3ojMJ9NjApp9/0bP5
+    fOjTiEtSCKOCAncwggJzMA4GA1UdDwEB/wQEAwIHgDAdBgNVHSUEFjAUBggrBgEF
+    BQcDAQYIKwYBBQUHAwIwDAYDVR0TAQH/BAIwADAdBgNVHQ4EFgQU/D8UtOXyECTr
+    7jCzJ0oPRZ1P09YwHwYDVR0jBBgwFoAUFC6zF7dYVsuuUAlA5h+vnYsUwsYwVQYI
+    KwYBBQUHAQEESTBHMCEGCCsGAQUFBzABhhVodHRwOi8vcjMuby5sZW5jci5vcmcw
+    IgYIKwYBBQUHMAKGFmh0dHA6Ly9yMy5pLmxlbmNyLm9yZy8wRwYDVR0RBEAwPoIL
+    cG9ueWxhbmcuaW+CDHBvbnlsYW5nLm9yZ4IPd3d3LnBvbnlsYW5nLmlvghB3d3cu
+    cG9ueWxhbmcub3JnMEwGA1UdIARFMEMwCAYGZ4EMAQIBMDcGCysGAQQBgt8TAQEB
+    MCgwJgYIKwYBBQUHAgEWGmh0dHA6Ly9jcHMubGV0c2VuY3J5cHQub3JnMIIBBAYK
+    KwYBBAHWeQIEAgSB9QSB8gDwAHYAQcjKsd8iRkoQxqE6CUKHXk4xixsD6+tLx2jw
+    kGKWBvYAAAF9kmgF5wAABAMARzBFAiEA1ipnOndxfhqtG0KZJdKre7aBKSzHmqW8
+    IobEhOB9zewCICZklYtiewZjjTqQyWvD5fn5b2SJi+JDZ5SKAyu6j3B+AHYAKXm+
+    8J45OSHwVnOfY6V35b5XfZxgCvj5TV0mXCVdx4QAAAF9kmgF7QAABAMARzBFAiBb
+    zytZOtrPWbG63H7cBo9g0KpEYq/D+fVlXUMuKLCgdQIhAMs3TTMYzfAfQVrcHoma
+    H7RNPHddIVBBxfc9YWM3YHMtMA0GCSqGSIb3DQEBCwUAA4IBAQCHXAXCJo4lkogw
+    EDarrIu/LqYVJ3ZR0lE7UWr0Ewf1rNI+uSFMdqPMd18qtMZQfVZmi/2BqiLK+Nlz
+    7SEKnL8c4suEW0iP6gSlHsAJLbqGU8biNlx5N0a8lU/kkpscXi3wCGnJUkU20rOv
+    3W/O7p+APWc6s2JzMtYwf9j1jel+Ak+sxE7wipgH6D6PWSo03KLvrXmLKPwBxsbn
+    OqaXstwJ4gggUwJ5qenWNz5LKF+b/uI+Uy0YErDgKuYYdLFy1EE7x/A6sPg+zia3
+    qGC9qgInlv9t+SNfExIlvGoPVe02Rz4l3xvYkUNOiAxVXy24c1658nAmHCQXYJNT
+    bF3Iiu/C
+    -----END CERTIFICATE-----
+    """
+
+    let cert: X509 = X509.from_pem(ponycert)?
+    h.assert_eq[String](cert.key_id()?,
+      "FC:3F:14:B4:E5:F2:10:24:EB:EE:30:B3:27:4A:0F:45:9D:4F:D3:D6")
+    h.assert_eq[String](cert.authority_key_id()?,
+      "14:2E:B3:17:B7:58:56:CB:AE:50:09:40:E6:1F:AF:9D:8B:14:C2:C6")
+    h.assert_eq[String](cert.issuer_name()?, "R3")
+    h.assert_eq[String](cert.subject_name()?, "ponylang.io")
+    h.assert_eq[String](cert.serial()?, "033D72F31CB81144152FD525D2B8F87EE6E6")
+    h.assert_eq[I64](cert.not_before_posix(), 1638853230)
+    h.assert_eq[I64](cert.not_after_posix(), 1646629229)
+
+
+
+
+

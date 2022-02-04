@@ -8,6 +8,15 @@ use @OPENSSL_sk_pop[Pointer[X509Extension] tag](sk: Pointer[StackX509Extension] 
 use @OPENSSL_sk_num[I32](sk: Pointer[StackX509Extension] tag)
 
 class StackX509Extension
+  """
+  Class wraps a StackX509Extension.
+
+  I have explicitly not exposed the _pop() functions as I want
+  to discourage its use for reasons.
+
+  The use-cases that would need pop() can be satisfied by
+  using an Iterator.
+  """
   let _stack: Pointer[StackX509Extension] tag
   new create() =>
     _stack = @sk_X509_EXTENSION_new_null()
@@ -23,6 +32,10 @@ class StackX509Extension
 
 
 class StackX509ExtensionIterator is Iterator[X509Extension]
+  """
+  Class that implements an Iterator over the items in the
+  stack
+  """
   let _stack: Pointer[StackX509Extension] tag
   var cnt: I32 = 0
 

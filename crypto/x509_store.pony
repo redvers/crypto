@@ -11,7 +11,11 @@ use @X509_STORE_get0_objects[Pointer[StackX509Object] tag](v: Pointer[X509Store]
 class X509Store
   """
   This class represents a store of X509 "stuff".  Its default configuration
-  is empty.
+  is empty.  It exposes the contents of the Store via the certs field.
+
+  FIXME: This can also contain CRLs but it's not implemented yet
+  Instead of exposing this, should I add an iterator like for
+  StackX509Extension?
   """
   var _store: Pointer[X509Store] tag
   var certs: Array[X509] val = recover val Array[X509] end
@@ -43,6 +47,9 @@ class X509Store
     end
 
   fun count(): USize =>
+    """
+    Returns a count of the number of Certificates in the Store
+    """
     certs.size()
 
 

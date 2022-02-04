@@ -1,0 +1,14 @@
+* Examine provided cert (pem).
+* Enumerate provided x509 store.
+* Enumerate system store.
+
+* Clone a certificate
+* Create a new certificate
+* Add / Remove / Modify fields.
+* Export Certificate
+* Generate self-signed Cert
+* Generate CRL
+
+* Validate CRL
+* Sign Certificate
+

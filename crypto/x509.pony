@@ -1,5 +1,7 @@
 use "format"
 use "stack_x509_extension"
+use @X509_new[Pointer[X509] tag]()
+use @X509_dup[Pointer[X509] tag](orig: Pointer[X509] tag)
 //use @X509_check_ca[I32](x: X509 tag)
 //use @X509_check_email[I32](x: X509 tag, chk: Pointer[U8] tag, chklen: U64, flags: U32)
 //use @X509_check_host[I32](x: X509 tag, chk: Pointer[U8] tag, chklen: U64, flags: U32, peername: Pointer[Pointer[U8]] tag)
@@ -46,6 +48,17 @@ class X509
     _cert = @PEM_read_bio_X509(bio.apply(), Pointer[X509], Pointer[None], Pointer[None])
     if (_cert.is_null()) then error end
 
+  new create() =>
+    """
+    Create a completely blank Certificate.
+    """
+    _cert = @X509_new()
+
+  new _from_cert_ptr(cert: Pointer[X509] tag) =>
+    _cert = cert
+
+  fun clone(): X509 =>
+    X509._from_cert_ptr(_cert)
 
   fun issuer_name(): String val ? =>
     """

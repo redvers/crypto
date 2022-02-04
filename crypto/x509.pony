@@ -31,7 +31,7 @@ class X509
   """
   var _cert: Pointer[X509] tag
 
-  new from_x509object(obj: Pointer[X509Object] tag) =>
+  new val from_x509object(obj: Pointer[X509Object] tag) =>
     """
     A constructor which creates the object from an X509Object pointer.
     This is used when retrieving a certificate from a Certificate Store
@@ -39,7 +39,7 @@ class X509
     """
     _cert = @X509_OBJECT_get0_X509(obj)
 
-  new from_pem(data: (Array[U8] val | String val)) ? =>
+  new val from_pem(data: (Array[U8] val | String val)) ? =>
     """
     A constructor that takes a certificate as PEM data.
     """

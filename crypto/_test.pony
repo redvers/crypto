@@ -208,7 +208,7 @@ class iso _TestX509 is UnitTest
     -----END CERTIFICATE-----
     """
 
-    let cert: X509 = X509.from_pem(ponycert)?
+    let cert: X509 val = X509.from_pem(ponycert)?
     h.assert_eq[String](cert.key_id()?,
       "FC:3F:14:B4:E5:F2:10:24:EB:EE:30:B3:27:4A:0F:45:9D:4F:D3:D6")
     h.assert_eq[String](cert.authority_key_id()?,
